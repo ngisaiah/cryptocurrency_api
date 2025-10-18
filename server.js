@@ -42,11 +42,12 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 })
 
-app.get('/api/:year', (req, res)=>{
+app.get('/api/:coin/:year', (req, res)=>{
     const cryptoYear = req.params.year.toLowerCase()
+    const cryptoCoins = req.params.coin.toLowerCase()
 
-    if (cryptoYearly[cryptoYear]) {
-        res.json(cryptoYearly[cryptoYear])
+    if (cryptoYearly[cryptoCoins][cryptoYear]) {
+        res.json(cryptoYearly[cryptoCoins][cryptoYear])
     }
 })
 
